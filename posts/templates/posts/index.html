@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    
+    <div class="d-flex justify-content-center vh-100 flex-wrap">
+        <div class="text-center w-100 mt-5 align-self-start">
+            <h1 class="d-inline-block p-3 rounded-5 m-0 text-secondary">خوش آمدین</h1>
+            {% if user.is_authenticated %}
+                <span class="dropdown-center">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        {{user.phone}}
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'set_password' %}" class="dropdown-item">تنظیم رمز عبور</a></li>
+                        <li><a href="{% url 'request_otp_email' %}" class="dropdown-item">تنظیم ایمیل بازیابی</a></li>
+                    </ul>
+                </span>
+            {% endif %}
+        </div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="text-decoration-none fs-3 align-self-start btn btn-light text-secondary rounded-5">
+                خروج از حساب کاربری
+            </a>
+        {% else %}
+            <a href="{% url 'request_otp' %}" class="text-decoration-none fs-3 align-self-start btn btn-light text-secondary rounded-5">
+                ورود به حساب کاربری
+            </a>
+        {% endif %}
+
+    </div>
+
+{% endblock content %}
