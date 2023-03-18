@@ -64,13 +64,13 @@ def request_otp(request):
 
         otp = _generate_otp()
         print(otp)
-        send_sms(receptor=phone, template='huzan', type=1, param1=otp)
+        # send_sms(receptor=phone, template='huzan', type=1, param1=otp)
         SmsOtp.objects.create(
             user=user,
             code=make_password(otp),
             expired=timezone.now() + timezone.timedelta(seconds=45)
         )
-        return JsonResponse({'msg': 'کد ارسال شده را وارد نمایید', 'ttl': 45}, status=200)
+        return JsonResponse({'msg': 'کد ارسال شده را وارد نمایید', 'ttl': 45, 'otp': otp}, status=200)
 
 
 
