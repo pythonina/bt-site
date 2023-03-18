@@ -82,9 +82,11 @@ ul {
         margin: 0 !important;
         left: 0;
         width: 100vw !important;
+        z-index: 999;
     }
 
     .toast {
+        z-index: 999;
         border-radius: 0 !important;
     }
 }
