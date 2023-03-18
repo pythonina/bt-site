@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-%y+l)065-n7&q6hnt34#_dvxg00etwt*%5lrpzr*x=0)--8-i#'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['payamsh319.pythonanywhere.com']
 
@@ -107,8 +107,8 @@ USE_TZ = True
 
 
 
-STATIC_ROOT = "/home/payamsh319/bt/btsite/static"
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "public","static")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assets')
 ]
